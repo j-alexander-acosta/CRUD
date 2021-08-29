@@ -1,6 +1,6 @@
+import sys
 
-
-clients = 'pablo,ricardo,alexander'
+clients = 'pablo,ricardo,alexander,'
 clients = clients.capitalize()
 
 
@@ -65,7 +65,19 @@ def _print_welcome():
 
 
 def _get_client_name():
-    return input('What is the client name? ')
+    client_name = None
+
+    while not client_name:
+        client_name = input('What is the client name? ')
+
+        if client_name == 'exit':
+            client_name = None
+            break
+
+    if not client_name:
+        sys.exit()
+
+    return  client_name
 
 if __name__ == '__main__':
     _print_welcome()
